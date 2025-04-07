@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'Rohith1305/flask-app:latest'
+        DOCKER_IMAGE = 'rohith1305/flask-app:latest'
         DOCKER_CREDENTIALS_ID = '7c910bc4-e2e4-48a4-857c-51be93277e96'
     }
 
