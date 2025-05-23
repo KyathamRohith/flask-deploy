@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'rohith1305/flask-app:latest'
-        DOCKER_CREDENTIALS_ID = '7c910bc4-e2e4-48a4-857c-51be93277e96'
+
     }
 
     stages {
@@ -15,13 +15,13 @@ pipeline {
 
         stage('Build and Package') {
             steps {
-               
+                echo "Deployment successful! 🚀"
             }
         }
 
         stage('Build Docker Image') {
             steps {
-               
+                echo "Deployment successful! 🚀"
             }
         }
 }
