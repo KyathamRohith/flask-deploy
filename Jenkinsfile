@@ -24,12 +24,5 @@ pipeline {
                 sh 'docker build -t $DOCKER_IMAGE .'
             }
         }
-
-       
-    post {
-        success {
-            echo 'Deployment Successful!'
-        }
-    }
 }
 }
