@@ -24,5 +24,15 @@ pipeline {
                 echo "Deployment successful! 🚀"
             }
         }
+        stage('push docker image') {
+            steps {
+                echo "Deployment successful! 🚀"
+            }
+        }
+        stage('deployment') {
+            steps {
+                echo "Deployment successful! 🚀"
+            }
+        }
 }
 }
