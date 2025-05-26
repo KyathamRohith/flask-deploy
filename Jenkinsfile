@@ -1,38 +1,39 @@
+@Library('my-shared-lib') _
+
 pipeline {
     agent any
 
-    environment {
-        DOCKER_IMAGE = 'rohith1305/flask-app:latest'
+    stages {
+        stage('Checkout') {
+            steps {
+            }
+        }
 
+        stage('Install Dependencies') {
+            steps {
+                sh 'python3 -m venv venv'
+                sh './venv/bin/pip install -r requirements.txt'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                script {
+                    pythonBuild()  // Calls shared library function
+                }
+            }
+        }
     }
 
-    stages {
-        stage('Checkout Code') {
-            steps {
-                git url: 'https://github.com/KyathamRohith/flask-deploy', branch: 'main'
-            }
+    post {
+        always {
+            echo "Pipeline complete."
         }
-
-        stage('Build and Package') {
-            steps {
-                echo "Deployment successful! 🚀"
-            }
+        success {
+            echo "✅ Build and tests succeeded."
         }
-
-        stage('Build Docker Image') {
-            steps {
-                echo "Deployment successful! 🚀"
-            }
+        failure {
+            echo "❌ Build or tests failed."
         }
-        stage('push docker image') {
-            steps {
-                echo "Deployment successful! 🚀"
-            }
-        }
-        stage('deployment') {
-            steps {
-                echo "Deployment successful! 🚀"
-            }
-        }
-}
+    }
 }
